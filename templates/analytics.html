@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Model Analytics</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <h1>Model Analytics</h1>
+
+
+    <h2>
+        Production Model:
+        {{ metadata.best_model }}
+    </h2>
+
+    <p>
+        Decision Threshold:
+        <strong>
+            {{ metadata.threshold }}
+        </strong>
+    </p>
+
+
+    <hr>
+
+
+    <h2>Production Model Metrics</h2>
+
+    <ul>
+
+        <li>
+            Accuracy:
+            {{ "%.2f"|format(metadata.metrics.accuracy * 100) }}%
+        </li>
+
+        <li>
+            Precision:
+            {{ "%.2f"|format(metadata.metrics.precision * 100) }}%
+        </li>
+
+        <li>
+            Recall:
+            {{ "%.2f"|format(metadata.metrics.recall * 100) }}%
+        </li>
+
+        <li>
+            F1 Score:
+            {{ "%.2f"|format(metadata.metrics.f1 * 100) }}%
+        </li>
+
+        <li>
+            ROC-AUC:
+            {{ "%.2f"|format(metadata.metrics.roc_auc * 100) }}%
+        </li>
+
+    </ul>
+
+
+    <hr>
+
+
+    <h2>Confusion Matrix</h2>
+
+    <table border="1" cellpadding="15">
+
+        <tr>
+
+            <th></th>
+
+            <th>Predicted Stay</th>
+
+            <th>Predicted Churn</th>
+
+        </tr>
+
+        <tr>
+
+            <th>Actual Stay</th>
+
+            <td>
+                {{ metadata.confusion_matrix[0][0] }}
+            </td>
+
+            <td>
+                {{ metadata.confusion_matrix[0][1] }}
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <th>Actual Churn</th>
+
+            <td>
+                {{ metadata.confusion_matrix[1][0] }}
+            </td>
+
+            <td>
+                {{ metadata.confusion_matrix[1][1] }}
+            </td>
+
+        </tr>
+
+    </table>
+
+
+    <hr>
+
+
+    <h2>ROC Curve</h2>
+
+    <canvas
+        id="rocChart"
+        width="700"
+        height="350"
+    ></canvas>
+
+
+    <script>
+
+        const fpr =
+            {{ metadata.roc_curve.fpr | tojson }};
+
+        const tpr =
+            {{ metadata.roc_curve.tpr | tojson }};
+
+
+        new Chart(
+            document.getElementById("rocChart"),
+            {
+
+                type: "line",
+
+                data: {
+
+                    labels: fpr,
+
+                    datasets: [
+                        {
+                            label: "XGBoost ROC Curve",
+
+                            data: tpr,
+
+                            borderWidth: 2,
+
+                            fill: false
+                        }
+                    ]
+
+                },
+
+                options: {
+
+                    responsive: true,
+
+                    scales: {
+
+                        x: {
+                            title: {
+                                display: true,
+                                text: "False Positive Rate"
+                            }
+                        },
+
+                        y: {
+                            title: {
+                                display: true,
+                                text: "True Positive Rate"
+                            },
+
+                            min: 0,
+                            max: 1
+                        }
+
+                    }
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+    <br>
+
+    <a href="/">
+        Back to Home
+    </a>
+
+</body>
+
+</html>

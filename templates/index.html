@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}
+Customer Churn AI
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="hero text-center">
+
+    <div class="container">
+
+        <h1 class="display-4 fw-bold">
+            Customer Churn Prediction
+        </h1>
+
+        <p class="lead text-muted mt-3">
+
+            An end-to-end machine learning system
+            for predicting customer churn.
+
+        </p>
+
+
+        <div class="mt-4">
+
+            <a
+                href="/predict"
+                class="btn btn-primary btn-lg me-2"
+            >
+                Predict Churn
+            </a>
+
+
+            <a
+                href="/analytics"
+                class="btn btn-outline-dark btn-lg"
+            >
+                View Analytics
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<div class="row g-4">
+
+
+    <div class="col-md-4">
+
+        <div class="card metric-card">
+
+            <h5>
+                Production Model
+            </h5>
+
+            <div class="metric-value">
+                XGBoost
+            </div>
+
+            <p class="text-muted">
+                Selected through model comparison
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="col-md-4">
+
+        <div class="card metric-card">
+
+            <h5>
+                ROC-AUC
+            </h5>
+
+            <div class="metric-value">
+                85.46%
+            </div>
+
+            <p class="text-muted">
+                Test set performance
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="col-md-4">
+
+        <div class="card metric-card">
+
+            <h5>
+                Churn Threshold
+            </h5>
+
+            <div class="metric-value">
+                0.35
+            </div>
+
+            <p class="text-muted">
+                Tuned for better churn recall
+            </p>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

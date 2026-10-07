@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Model Comparison</title>
+
+</head>
+
+<body>
+
+    <h1>Model Comparison</h1>
+
+    <p>
+        Performance comparison of the machine learning models
+        evaluated for customer churn prediction.
+    </p>
+
+
+    <table border="1" cellpadding="10">
+
+        <thead>
+
+            <tr>
+                <th>Model</th>
+                <th>CV ROC-AUC</th>
+                <th>Accuracy</th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>F1</th>
+                <th>ROC-AUC</th>
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            {% for result in results %}
+
+            <tr>
+
+                <td>
+                    <strong>{{ result.model }}</strong>
+                </td>
+
+                <td>
+                    {{ "%.2f"|format(result.cv_roc_auc * 100) }}%
+                </td>
+
+                <td>
+                    {{ "%.2f"|format(result.accuracy * 100) }}%
+                </td>
+
+                <td>
+                    {{ "%.2f"|format(result.precision * 100) }}%
+                </td>
+
+                <td>
+                    {{ "%.2f"|format(result.recall * 100) }}%
+                </td>
+
+                <td>
+                    {{ "%.2f"|format(result.f1 * 100) }}%
+                </td>
+
+                <td>
+                    {{ "%.2f"|format(result.roc_auc * 100) }}%
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+
+    <br>
+
+
+    <h2>Selected Production Model</h2>
+
+    <h3>XGBoost</h3>
+
+    <p>
+        XGBoost was selected based on the highest
+        cross-validation ROC-AUC among the evaluated models.
+    </p>
+
+    <p>
+        Cross-validation ROC-AUC:
+        <strong>86.31%</strong>
+    </p>
+
+    <p>
+        Test ROC-AUC:
+        <strong>85.46%</strong>
+    </p>
+
+
+    <br>
+
+    <a href="/">
+        Back to Home
+    </a>
+
+</body>
+
+</html>

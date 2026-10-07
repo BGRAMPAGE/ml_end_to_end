@@ -152,9 +152,10 @@ Payment Method
 Tenure Months
 Monthly Charges
 Total Charges
+CLTV
 ```
 
-Therefore, our initial model uses **19 input features**.
+Therefore, our initial model uses **20 input features**.
 
 ### Complete feature list
 
@@ -178,6 +179,7 @@ Therefore, our initial model uses **19 input features**.
 17. Payment Method
 18. Monthly Charges
 19. Total Charges
+20. CLTV
 ```
 
 The target is:

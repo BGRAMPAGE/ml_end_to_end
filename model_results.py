@@ -1,0 +1,38 @@
+MODEL_RESULTS = [
+    {
+        "model": "Logistic Regression",
+        "cv_roc_auc": 0.8587,
+        "accuracy": 0.7431,
+        "precision": 0.5105,
+        "recall": 0.7834,
+        "f1": 0.6181,
+        "roc_auc": 0.8489,
+    },
+    {
+        "model": "Random Forest",
+        "cv_roc_auc": 0.8480,
+        "accuracy": 0.7793,
+        "precision": 0.5718,
+        "recall": 0.6711,
+        "f1": 0.6175,
+        "roc_auc": 0.8372,
+    },
+    {
+        "model": "Gradient Boosting",
+        "cv_roc_auc": 0.8628,
+        "accuracy": 0.8006,
+        "precision": 0.6525,
+        "recall": 0.5321,
+        "f1": 0.5862,
+        "roc_auc": 0.8528,
+    },
+    {
+        "model": "XGBoost",
+        "cv_roc_auc": 0.8631,
+        "accuracy": 0.8013,
+        "precision": 0.6526,
+        "recall": 0.5374,
+        "f1": 0.5894,
+        "roc_auc": 0.8546,
+    },
+]

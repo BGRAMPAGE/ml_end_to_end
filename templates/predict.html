@@ -1,0 +1,489 @@
+{% extends "base.html" %}
+
+{% block title %}
+Predict Customer Churn
+{% endblock %}
+
+
+{% block content %}
+
+<h1 class="mb-4">
+    Predict Customer Churn
+</h1>
+
+
+<form
+    action="/predict"
+    method="POST"
+>
+
+
+<div class="card p-4 mb-4">
+
+
+    <h4 class="mb-4">
+        Customer Information
+    </h4>
+
+
+    <div class="row g-3">
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Gender
+            </label>
+
+            <select
+                class="form-select"
+                name="Gender"
+            >
+
+                <option>Male</option>
+                <option>Female</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Senior Citizen
+            </label>
+
+            <select
+                class="form-select"
+                name="Senior Citizen"
+            >
+
+                <option>No</option>
+                <option>Yes</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Partner
+            </label>
+
+            <select
+                class="form-select"
+                name="Partner"
+            >
+
+                <option>No</option>
+                <option>Yes</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Dependents
+            </label>
+
+            <select
+                class="form-select"
+                name="Dependents"
+            >
+
+                <option>No</option>
+                <option>Yes</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Phone Service
+            </label>
+
+            <select
+                class="form-select"
+                name="Phone Service"
+            >
+
+                <option>Yes</option>
+                <option>No</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Multiple Lines
+            </label>
+
+            <select
+                class="form-select"
+                name="Multiple Lines"
+            >
+
+                <option>Yes</option>
+                <option>No</option>
+                <option>No phone service</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Internet Service
+            </label>
+
+            <select
+                class="form-select"
+                name="Internet Service"
+            >
+
+                <option>DSL</option>
+                <option>Fiber optic</option>
+                <option>No</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Online Security
+            </label>
+
+            <select
+                class="form-select"
+                name="Online Security"
+            >
+
+                <option>No</option>
+                <option>Yes</option>
+                <option>No internet service</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Online Backup
+            </label>
+
+            <select
+                class="form-select"
+                name="Online Backup"
+            >
+
+                <option>No</option>
+                <option>Yes</option>
+                <option>No internet service</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Device Protection
+            </label>
+
+            <select
+                class="form-select"
+                name="Device Protection"
+            >
+
+                <option>No</option>
+                <option>Yes</option>
+                <option>No internet service</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Tech Support
+            </label>
+
+            <select
+                class="form-select"
+                name="Tech Support"
+            >
+
+                <option>No</option>
+                <option>Yes</option>
+                <option>No internet service</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Streaming TV
+            </label>
+
+            <select
+                class="form-select"
+                name="Streaming TV"
+            >
+
+                <option>No</option>
+                <option>Yes</option>
+                <option>No internet service</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Streaming Movies
+            </label>
+
+            <select
+                class="form-select"
+                name="Streaming Movies"
+            >
+
+                <option>No</option>
+                <option>Yes</option>
+                <option>No internet service</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Contract
+            </label>
+
+            <select
+                class="form-select"
+                name="Contract"
+            >
+
+                <option>Month-to-month</option>
+                <option>One year</option>
+                <option>Two year</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Paperless Billing
+            </label>
+
+            <select
+                class="form-select"
+                name="Paperless Billing"
+            >
+
+                <option>Yes</option>
+                <option>No</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Payment Method
+            </label>
+
+            <select
+                class="form-select"
+                name="Payment Method"
+            >
+
+                <option>Electronic check</option>
+                <option>Mailed check</option>
+                <option>Bank transfer (automatic)</option>
+                <option>Credit card (automatic)</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="col-md-3">
+
+            <label class="form-label">
+                Tenure Months
+            </label>
+
+            <input
+                type="number"
+                class="form-control"
+                name="Tenure Months"
+                min="0"
+                required
+            >
+
+        </div>
+
+
+        <div class="col-md-3">
+
+            <label class="form-label">
+                Monthly Charges
+            </label>
+
+            <input
+                type="number"
+                class="form-control"
+                name="Monthly Charges"
+                step="0.01"
+                min="0"
+                required
+            >
+
+        </div>
+
+
+        <div class="col-md-3">
+
+            <label class="form-label">
+                Total Charges
+            </label>
+
+            <input
+                type="number"
+                class="form-control"
+                name="Total Charges"
+                step="0.01"
+                min="0"
+                required
+            >
+
+        </div>
+
+
+        <div class="col-md-3">
+
+            <label class="form-label">
+                CLTV
+            </label>
+
+            <input
+                type="number"
+                class="form-control"
+                name="CLTV"
+                step="0.01"
+                min="0"
+                required
+            >
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        type="submit"
+        class="btn btn-primary btn-lg mt-4"
+    >
+        Predict Churn
+    </button>
+
+
+</div>
+
+</form>
+
+
+
+{% if prediction %}
+
+<div class="card p-4">
+
+    <h3>
+        Prediction Result
+    </h3>
+
+
+    {% if prediction == "Likely to Churn" %}
+
+        <div class="alert alert-danger mt-3">
+
+            <h4>
+                ⚠️ Likely to Churn
+            </h4>
+
+            <p class="mb-0">
+
+                Churn Probability:
+                <strong>
+                    {{ probability }}%
+                </strong>
+
+            </p>
+
+        </div>
+
+    {% else %}
+
+        <div class="alert alert-success mt-3">
+
+            <h4>
+                ✓ Likely to Stay
+            </h4>
+
+            <p class="mb-0">
+
+                Churn Probability:
+                <strong>
+                    {{ probability }}%
+                </strong>
+
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endif %}
+
+
+{% endblock %}
