@@ -690,3 +690,5 @@ Complete preprocessing + encoding
 ```
 
 The **next step** is to build the proper `ColumnTransformer` + `Pipeline` that handles numerical and categorical features automatically.
+
+LINK : "https://customer-churn-app-0xy1.onrender.com"
